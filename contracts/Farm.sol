@@ -52,7 +52,7 @@ contract Farm is Ownable {
     // The SUSHI TOKEN!
     IERC20 public sushi;
     // Dev address.
-    address public devaddr;
+    // address public devaddr;
     // Block number when bonus SUSHI period ends.
     uint256 public bonusEndBlock;
     // SUSHI tokens created per block.
@@ -77,13 +77,13 @@ contract Farm is Ownable {
 
     constructor(
         IERC20 _sushi,
-        address _devaddr,
+        // address _devaddr,
         uint256 _sushiPerBlock,
         uint256 _startBlock,
         uint256 _bonusEndBlock
     ) public {
         sushi = _sushi;
-        devaddr = _devaddr;
+        // devaddr = _devaddr;
         sushiPerBlock = _sushiPerBlock;
         bonusEndBlock = _bonusEndBlock;
         startBlock = _startBlock;
@@ -184,7 +184,7 @@ contract Farm is Ownable {
         uint256 multiplier = getMultiplier(pool.lastRewardBlock, block.number);
         uint256 sushiReward = multiplier.mul(sushiPerBlock).mul(pool.allocPoint).div(totalAllocPoint);
         // sushi.mint(devaddr, sushiReward.div(10));
-        sushi.transfer(devaddr, sushiReward.div(10));
+        // sushi.transfer(devaddr, sushiReward.div(10));
 
         // sushi.mint(address(this), sushiReward);  // this contract already has OPEN tokens
 
@@ -250,8 +250,8 @@ contract Farm is Ownable {
     }
 
     // Update dev address by the previous dev.
-    function dev(address _devaddr) public {
-        require(msg.sender == devaddr, "dev: wut?");
-        devaddr = _devaddr;
-    }
+    // function dev(address _devaddr) public {
+    //     require(msg.sender == devaddr, "dev: wut?");
+    //     devaddr = _devaddr;
+    // }
 }

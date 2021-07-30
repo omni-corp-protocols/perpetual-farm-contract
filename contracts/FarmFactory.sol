@@ -11,12 +11,11 @@ contract FarmFactory{
 
     function createFarm(
         IERC20 _sushi,
-        address _devaddr,
         uint256 _sushiPerBlock,
         uint256 _startBlock,
         uint256 _bonusEndBlock
     ) public returns (address newFarm) {
-        Farm farm = new Farm(_sushi, _devaddr, _sushiPerBlock, _startBlock, _bonusEndBlock);
+        Farm farm = new Farm(_sushi, _sushiPerBlock, _startBlock, _bonusEndBlock);
         farm.transferOwnership(msg.sender);
 
         farms.push(address(farm));
