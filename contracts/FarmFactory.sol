@@ -1,11 +1,10 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.5.12;
 
-import "./Ownable.sol";
 import "./Farm.sol";
 import "./IERC20.sol";
 
-contract FarmFactory is Ownable {
+contract FarmFactory{
     event NewFarmCreated(address indexed farm);
 
     address[] public farms;
